@@ -194,7 +194,7 @@ export default function Hero() {
           transition={{ duration: 1.1, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
         >
           <SplineScene
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            scene="https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode"
             className="hero__robot-spline"
           />
         </motion.div>
