@@ -1,0 +1,207 @@
+/* ── Projects ─────────────────────────────────────────────── */
+.projects__orb-1 {
+  width: 480px; height: 480px;
+  background: rgba(167,139,250,0.07);
+  top: -80px; right: -120px;
+}
+
+.projects__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.projects__header .section__label { justify-content: center; }
+.projects__header .section__label::before { display: none; }
+
+/* Projects grid */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Project card */
+.project-card {
+  background: var(--clr-card);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-med);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--grad-shine);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.project-card:hover {
+  border-color: var(--clr-border-glow);
+  box-shadow: var(--shadow-glow), var(--shadow-card);
+  transform: translateY(-8px);
+}
+
+.project-card:hover::after { opacity: 1; }
+
+/* Banner */
+.project-card__banner {
+  position: relative;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-card__banner-emoji {
+  font-size: 4rem;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
+  transform: translateY(0);
+  transition: transform 0.4s;
+  user-select: none;
+}
+
+.project-card:hover .project-card__banner-emoji {
+  transform: translateY(-6px) scale(1.1);
+}
+
+/* Badges */
+.project-card__badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 5px 13px;
+  border-radius: 50px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.badge-ongoing {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.badge-completed {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.28);
+  color: #4ade80;
+}
+
+/* Body */
+.project-card__body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.project-card__title {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--clr-text);
+  letter-spacing: -0.01em;
+}
+
+.project-card__desc {
+  font-size: 0.88rem;
+  color: var(--clr-text-muted);
+  line-height: 1.72;
+}
+
+/* Highlights */
+.project-card__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.project-card__highlight {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 0.83rem;
+  color: var(--clr-text-muted);
+  line-height: 1.55;
+}
+
+.project-card__highlight-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--clr-neon);
+  flex-shrink: 0;
+  margin-top: 6px;
+  box-shadow: 0 0 6px rgba(0,245,212,0.5);
+}
+
+/* Tags */
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+/* Actions */
+.project-card__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.project-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 50px;
+  font-family: var(--font-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  text-decoration: none;
+}
+
+.project-card__action-primary {
+  background: var(--grad-accent);
+  color: #fff;
+}
+
+.project-card__action-primary:hover {
+  box-shadow: 0 6px 20px rgba(100,120,255,0.4);
+  transform: translateY(-1px);
+}
+
+.project-card__action-secondary {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text-muted);
+}
+
+.project-card__action-secondary:hover {
+  border-color: var(--clr-border-glow);
+  color: var(--clr-text);
+  background: rgba(100,120,255,0.08);
+  transform: translateY(-1px);
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .projects__grid { grid-template-columns: 1fr; }
+}

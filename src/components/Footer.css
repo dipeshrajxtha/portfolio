@@ -1,0 +1,110 @@
+/* ── Footer ───────────────────────────────────────────────── */
+.footer {
+  position: relative;
+  z-index: 2;
+  padding: 48px clamp(20px, 6vw, 100px) 32px;
+  border-top: 1px solid var(--clr-border);
+  background: rgba(5, 8, 22, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer__logo {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.footer__logo-bracket { color: var(--clr-accent); }
+.footer__logo-name { color: var(--clr-text); }
+.footer__logo:hover .footer__logo-name { color: var(--clr-accent-2); }
+
+.footer__copy {
+  font-size: 0.85rem;
+  color: var(--clr-text-dim);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.footer__copy span { color: var(--clr-text-muted); }
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.footer__link {
+  font-size: 0.84rem;
+  color: var(--clr-text-dim);
+  padding: 5px 12px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.footer__link:hover {
+  color: var(--clr-text);
+  background: rgba(100,120,255,0.08);
+}
+
+.footer__back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 50px;
+  font-family: var(--font-primary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--clr-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(12px);
+}
+
+.footer__back-top:hover {
+  border-color: var(--clr-border-glow);
+  color: var(--clr-text);
+  background: rgba(100,120,255,0.1);
+  box-shadow: var(--shadow-glow-sm);
+}
+
+/* Bottom row */
+.footer__bottom {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--clr-border);
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--clr-text-dim);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .footer__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer__links { justify-content: center; }
+}

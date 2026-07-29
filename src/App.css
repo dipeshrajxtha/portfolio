@@ -1,0 +1,9 @@
+/* App.css — minimal top-level layout styles */
+#root {
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
