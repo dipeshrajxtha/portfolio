@@ -10,34 +10,54 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './App.css';
 
+/* ── Loading Avatar ──────────────────────────────────────── */
+function LoadingAvatar() {
+  const [imgError, setImgError] = useState(false);
+  return (
+    <div className="loading-avatar-container">
+      <div className="loading-avatar-ring" />
+      {!imgError ? (
+        <img
+          src="/avatar.png"
+          alt="Dipeshraj"
+          className="loading-avatar-img"
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <span className="loading-avatar-initials">DR</span>
+      )}
+    </div>
+  );
+}
+
 /* ── Loading Screen ─────────────────────────────────────── */
 function LoadingScreen({ onDone }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const steps = [20, 45, 70, 90, 100];
+    const steps = [45, 85, 100];
     let i = 0;
     const next = () => {
       if (i < steps.length) {
         setProgress(steps[i++]);
-        setTimeout(next, 220 + Math.random() * 160);
+        setTimeout(next, 50);
       } else {
-        setTimeout(onDone, 280);
+        setTimeout(onDone, 80);
       }
     };
-    const t = setTimeout(next, 150);
+    const t = setTimeout(next, 40);
     return () => clearTimeout(t);
   }, [onDone]);
 
   return (
     <div className="loading-screen">
       <motion.div
-        className="loading-logo"
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45 }}
+        className="loading-avatar"
+        initial={{ opacity: 0, scale: 0.7 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
       >
-        &lt;<span>DR</span>/&gt;
+        <LoadingAvatar />
       </motion.div>
 
       <motion.div

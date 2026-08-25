@@ -5,26 +5,29 @@ import './Experience.css';
 
 const experiences = [
   {
+    role: 'Graphic Design Intern',
+    company: 'The Brandghar',
+    location: 'Kathmandu',
+    period: 'Mar 2024 – Aug 2024',
+    duration: '5 months',
+    bullets: [
+      'Designed brand identity assets including logos, social media graphics, and marketing collateral for multiple clients.',
+      'Collaborated with the creative team to develop visual concepts that aligned with client brand guidelines.',
+      'Produced print and digital design materials using industry-standard tools under real agency timelines.',
+      'Gained hands-on experience in client communication, design iteration, and professional creative workflows.',
+    ],
+  },
+  {
     role: 'Web Development Intern',
     company: 'PCPS College',
     location: 'Kathmandu',
     period: 'Feb 2024 – Apr 2024',
+    duration: '3 months',
     bullets: [
       'Built interactive, responsive web pages using HTML, CSS, JavaScript, and Java Servlet.',
       'Designed and integrated backend systems using MySQL and Jakarta Servlet to manage service requests.',
       'Collaborated on UI/UX improvements and optimized performance on college-level systems.',
       'Conducted internal testing for quality assurance and database functionality.',
-    ],
-  },
-  {
-    role: 'Freelance Developer',
-    company: 'Remote',
-    location: 'Remote',
-    period: 'Jan 2023 – Present',
-    bullets: [
-      'Developed custom client applications, including a Library Management System and a Service Management System using Java, JSP, and Apache Tomcat.',
-      'Built responsive interfaces and ensured seamless server-client interactions.',
-      'Delivered production-ready, client-facing solutions autonomously under tight timelines.',
     ],
   },
 ];
@@ -88,13 +91,22 @@ export default function Experience() {
               <div className="timeline-item__dot" />
 
               {/* Card */}
-              <div className="glass-card timeline-item__card">
+              <motion.div
+                className="glass-card timeline-item__card"
+                whileHover={{ y: -6, scale: 1.01 }}
+                transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+              >
                 <div className="timeline-item__header">
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <Briefcase size={16} color="var(--clr-accent)" />
                     <span className="timeline-item__role">{exp.role}</span>
                   </div>
-                  <span className="timeline-item__period">{exp.period}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span className="timeline-item__period">{exp.period}</span>
+                    {exp.duration && (
+                      <span className="timeline-item__duration">{exp.duration}</span>
+                    )}
+                  </div>
                 </div>
 
                 <div className="timeline-item__company">
@@ -116,7 +128,7 @@ export default function Experience() {
                     </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>

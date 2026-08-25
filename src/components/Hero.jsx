@@ -155,18 +155,18 @@ export default function Hero() {
 
           {/* Social links */}
           <motion.div className="hero__socials" variants={itemVariants}>
-            <a href="mailto:Xthadipesh921@gmail.com" className="hero__social-link" aria-label="Email">
+            <motion.a href="mailto:Xthadipesh921@gmail.com" className="hero__social-link" aria-label="Email" whileHover={{ y: -4, scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <Mail size={16} />
-            </a>
-            <a href="tel:+9779860001136" className="hero__social-link" aria-label="Phone">
+            </motion.a>
+            <motion.a href="tel:+9779860001136" className="hero__social-link" aria-label="Phone" whileHover={{ y: -4, scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <Phone size={16} />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hero__social-link" aria-label="LinkedIn">
+            </motion.a>
+            <motion.a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hero__social-link" aria-label="LinkedIn" whileHover={{ y: -4, scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <FaLinkedinIn size={15} />
-            </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="hero__social-link" aria-label="GitHub">
+            </motion.a>
+            <motion.a href="https://github.com" target="_blank" rel="noreferrer" className="hero__social-link" aria-label="GitHub" whileHover={{ y: -4, scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <FaGithub size={15} />
-            </a>
+            </motion.a>
             <span className="hero__location">
               <MapPin size={13} color="var(--clr-accent)" />
               Kathmandu, Nepal
@@ -176,12 +176,12 @@ export default function Hero() {
           {/* Stats */}
           <motion.div className="hero__stats" variants={itemVariants}>
             {stats.map((s) => (
-              <div className="hero__stat" key={s.label}>
+              <motion.div className="hero__stat" key={s.label} whileHover={{ y: -6, scale: 1.05 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }}>
                 <div className="hero__stat-number">
                   <AnimatedCounter end={s.num} duration={2} suffix={s.suffix} startTrigger={inView} />
                 </div>
                 <div className="hero__stat-label">{s.label}</div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>
