@@ -1,15 +1,39 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
+import { ExternalLink, Briefcase } from 'lucide-react';
+import {
+  FaGithub, FaJava, FaKey, FaBook, FaTaxi,
+} from 'react-icons/fa';
+import {
+  SiReact, SiDotnet, SiMysql, SiPython,
+  SiFlutter, SiNodedotjs, SiJsonwebtokens,
+} from 'react-icons/si';
+import { MdElevator } from 'react-icons/md';
+import { GiCook } from 'react-icons/gi';
+import { BsDropletFill } from 'react-icons/bs';
+import { IoSettingsSharp } from 'react-icons/io5';
 import './Projects.css';
+
+/* ── Project icon display component ────────────────────── */
+function ProjectIcon({ icon: Icon, color, bg }) {
+  return (
+    <div
+      className="project-card__icon-wrap"
+      style={{ background: bg }}
+    >
+      <Icon size={52} color={color} style={{ filter: `drop-shadow(0 0 18px ${color}88)` }} />
+    </div>
+  );
+}
 
 const projects = [
   {
     title: 'Chef Port',
-    emoji: '👨‍🍳',
+    Icon: GiCook,
+    iconColor: '#f97316',
+    iconBg: 'linear-gradient(135deg, #1a0a00 0%, #3d1a00 50%, #1a0808 100%)',
+    bannerBg: 'linear-gradient(135deg, #1a0a00 0%, #3d1800 60%, #1a0a00 100%)',
     status: 'ongoing',
-    bannerBg: 'linear-gradient(135deg, #1a1040 0%, #2d1b69 50%, #1a0a40 100%)',
     description:
       'A React + .NET C# application for chefs to post recipes and food lovers to explore culinary creations from professionals.',
     highlights: [
@@ -18,16 +42,95 @@ const projects = [
       'Responsive design with modern UI/UX principles',
     ],
     tags: ['React', 'C#', '.NET', 'MySQL', 'JWT'],
+    github: 'https://github.com/dipeshrajxtha/portfolio',
+    demo: null,
+    tagIcons: [SiReact, SiDotnet, SiMysql, SiJsonwebtokens],
+  },
+  {
+    title: 'CareerLink Platform',
+    Icon: Briefcase,
+    iconColor: '#a78bfa',
+    iconBg: 'linear-gradient(135deg, #1a0033 0%, #3b0764 50%, #1a0033 100%)',
+    bannerBg: 'linear-gradient(135deg, #1a0033 0%, #3b0764 60%, #1a0033 100%)',
+    status: 'completed',
+    description:
+      'A full-stack recruitment & job portal connecting job seekers with employers featuring candidate matching and dual dashboard management.',
+    highlights: [
+      'Dual portal dashboards for Employers & Job Seekers',
+      'Role-based authentication & route protection',
+      'Job posting, application tracking & candidate management',
+    ],
+    tags: ['React', 'Node.js', 'Express', 'MySQL', 'JWT'],
     github: '#',
-    demo: '#',
+    demo: null,
+    tagIcons: [SiReact, SiNodedotjs, SiMysql],
+  },
+  {
+    title: 'AquaMate',
+    Icon: BsDropletFill,
+    iconColor: '#38bdf8',
+    iconBg: 'linear-gradient(135deg, #001a2e 0%, #003a5c 50%, #001220 100%)',
+    bannerBg: 'linear-gradient(135deg, #001220 0%, #003a5c 60%, #001220 100%)',
+    status: 'completed',
+    description:
+      'A full-stack water delivery management solution featuring a Flutter mobile app and Node.js REST API backend for order tracking.',
+    highlights: [
+      'Flutter mobile UI with real-time order tracking',
+      'Node.js + Express REST API backend',
+      'MySQL database for persistent user & order data',
+    ],
+    tags: ['Flutter', 'Dart', 'Node.js', 'MySQL', 'REST API'],
+    github: 'https://github.com/dipeshrajxtha/aqua-mate-frontend',
+    demo: null,
+    tagIcons: [SiFlutter, SiNodedotjs, SiMysql],
+  },
+  {
+    title: 'Elevator System',
+    Icon: MdElevator,
+    iconColor: '#818cf8',
+    iconBg: 'linear-gradient(135deg, #0d0020 0%, #2a0060 50%, #0d0020 100%)',
+    bannerBg: 'linear-gradient(135deg, #0d0020 0%, #2a0060 60%, #0d0020 100%)',
+    status: 'completed',
+    description:
+      'A C# elevator simulation system modeling multi-floor dispatch algorithms, direction handling, and queue state management.',
+    highlights: [
+      'Multi-floor elevator dispatch and queue logic',
+      'Direction-aware request handling (up/down)',
+      'Clean OOP design patterns in C#',
+    ],
+    tags: ['C#', '.NET', 'OOP', 'Simulation'],
+    github: 'https://github.com/dipeshrajxtha/Elevator-System',
+    demo: null,
+    tagIcons: [SiDotnet],
+  },
+  {
+    title: 'Auth Lab',
+    Icon: FaKey,
+    iconColor: '#fbbf24',
+    iconBg: 'linear-gradient(135deg, #1a1000 0%, #3d2a00 50%, #1a1000 100%)',
+    bannerBg: 'linear-gradient(135deg, #1a1000 0%, #3d2a00 60%, #1a1000 100%)',
+    status: 'completed',
+    description:
+      'An authentication micro-service exploring JWT session management, bcrypt password hashing, and middleware route protection.',
+    highlights: [
+      'JWT token issuance and verification flow',
+      'Protected route middleware implementation',
+      'Password hashing and secure session handling',
+    ],
+    tags: ['JavaScript', 'Node.js', 'JWT', 'Bcrypt'],
+    github: 'https://github.com/dipeshrajxtha/auth_lab',
+    demo: null,
+    tagIcons: [SiNodedotjs, SiJsonwebtokens],
   },
   {
     title: 'Taxi Booking System',
-    emoji: '🚕',
+    Icon: FaTaxi,
+    iconColor: '#facc15',
+    iconBg: 'linear-gradient(135deg, #1a1400 0%, #3d3000 50%, #1a1400 100%)',
+    bannerBg: 'linear-gradient(135deg, #0a1a0a 0%, #1a3a1a 60%, #0a1a0a 100%)',
     status: 'completed',
-    bannerBg: 'linear-gradient(135deg, #0a2a1a 0%, #1a4a2a 50%, #0a1a0a 100%)',
     description:
-      'A complete Python-based booking system with modules for customer registration, driver login, admin control, and fare calculation.',
+      'A Python GUI booking application with modules for customer registration, driver dispatch, fare calculations, and admin controls.',
     highlights: [
       'GUI built with Tkinter for intuitive user interaction',
       'MySQL database for persistent data storage',
@@ -36,30 +139,36 @@ const projects = [
     tags: ['Python', 'Tkinter', 'MySQL'],
     github: '#',
     demo: null,
+    tagIcons: [SiPython, SiMysql],
   },
   {
     title: 'Library Management System',
-    emoji: '📚',
+    Icon: FaBook,
+    iconColor: '#f59e0b',
+    iconBg: 'linear-gradient(135deg, #1a1500 0%, #332a00 50%, #1a1500 100%)',
+    bannerBg: 'linear-gradient(135deg, #1a1000 0%, #2a2000 60%, #1a1000 100%)',
     status: 'completed',
-    bannerBg: 'linear-gradient(135deg, #1a1a0a 0%, #2a2a1a 50%, #0a0a0a 100%)',
     description:
-      'A Java Servlet-based system for managing book inventory, issuing records, and member services with a robust backend.',
+      'A Java Servlet-based web application for managing book inventories, member registrations, and borrowing records.',
     highlights: [
       'Full CRUD for book inventory and member management',
       'Issuing and return records with automated tracking',
       'Built and tested with Apache Tomcat & MySQL',
     ],
-    tags: ['Java', 'JSP', 'Apache Tomcat', 'MySQL', 'HTML', 'CSS'],
+    tags: ['Java', 'JSP', 'Apache Tomcat', 'MySQL'],
     github: '#',
     demo: null,
+    tagIcons: [FaJava, SiMysql],
   },
   {
     title: 'Service Management System',
-    emoji: '⚙️',
+    Icon: IoSettingsSharp,
+    iconColor: '#60a5fa',
+    iconBg: 'linear-gradient(135deg, #001020 0%, #002040 50%, #001020 100%)',
+    bannerBg: 'linear-gradient(135deg, #001020 0%, #002040 60%, #001020 100%)',
     status: 'completed',
-    bannerBg: 'linear-gradient(135deg, #0a1a2a 0%, #1a2a3a 50%, #0a0a1a 100%)',
     description:
-      'A dynamic backend system for handling service requests, scheduling, and status tracking for college-level operations.',
+      'A dynamic Java backend system for handling service request scheduling, status tracking, and database persistence.',
     highlights: [
       'Dynamic service request management and scheduling',
       'Real-time status tracking system',
@@ -68,6 +177,7 @@ const projects = [
     tags: ['Java', 'Jakarta Servlet', 'JSP', 'MySQL'],
     github: '#',
     demo: null,
+    tagIcons: [FaJava, SiMysql],
   },
 ];
 
@@ -75,7 +185,7 @@ const cardVariant = {
   hidden: { opacity: 0, y: 48 },
   visible: (i) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.6, delay: i * 0.12, ease: [0.4, 0, 0.2, 1] },
+    transition: { duration: 0.6, delay: i * 0.09, ease: [0.4, 0, 0.2, 1] },
   }),
 };
 
@@ -112,7 +222,7 @@ export default function Projects() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Real-world applications built to solve genuine problems.
+          Real-world applications built to solve genuine problems — from mobile apps to backend systems.
         </motion.p>
       </div>
 
@@ -126,13 +236,23 @@ export default function Projects() {
             variants={cardVariant}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
+            whileHover={{ y: -10, scale: 1.02, transition: { type: 'spring', stiffness: 350, damping: 20 } }}
           >
-            {/* Banner */}
+            {/* Banner with SVG icon */}
             <div className="project-card__banner" style={{ background: project.bannerBg }}>
-              <div className="project-card__banner-emoji">{project.emoji}</div>
+              <ProjectIcon
+                icon={project.Icon}
+                color={project.iconColor}
+                bg={project.iconBg}
+              />
               <div className={`project-card__badge badge-${project.status}`}>
-                {project.status === 'ongoing' ? 'Live / Ongoing' : 'Completed'}
+                {project.status === 'ongoing' ? '🔴 Live / Ongoing' : '✅ Completed'}
               </div>
+              {/* Decorative orb */}
+              <div
+                className="project-card__banner-orb"
+                style={{ background: `radial-gradient(circle, ${project.iconColor}22 0%, transparent 70%)` }}
+              />
             </div>
 
             {/* Body */}
@@ -143,7 +263,10 @@ export default function Projects() {
               <div className="project-card__highlights">
                 {project.highlights.map((h, hi) => (
                   <div key={hi} className="project-card__highlight">
-                    <div className="project-card__highlight-dot" />
+                    <div
+                      className="project-card__highlight-dot"
+                      style={{ background: project.iconColor, boxShadow: `0 0 6px ${project.iconColor}88` }}
+                    />
                     <span>{h}</span>
                   </div>
                 ))}
@@ -156,18 +279,28 @@ export default function Projects() {
               </div>
 
               <div className="project-card__actions">
-                <motion.a
-                  href={project.github}
-                  className="project-card__action project-card__action-secondary"
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`View ${project.title} source code on GitHub`}
-                >
-                  <FaGithub size={14} />
-                  Code
-                </motion.a>
+                {project.github && project.github !== '#' ? (
+                  <motion.a
+                    href={project.github}
+                    className="project-card__action project-card__action-secondary"
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.97 }}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${project.title} source code on GitHub`}
+                  >
+                    <FaGithub size={15} />
+                    View on GitHub
+                  </motion.a>
+                ) : (
+                  <motion.span
+                    className="project-card__action project-card__action-disabled"
+                    title="Private / No public repo yet"
+                  >
+                    <FaGithub size={15} />
+                    Code
+                  </motion.span>
+                )}
                 {project.demo && (
                   <motion.a
                     href={project.demo}

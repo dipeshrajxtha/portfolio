@@ -439,14 +439,76 @@ input, textarea { font-family: inherit; }
   gap: var(--sp-6);
 }
 
-.loading-logo {
-  font-family: var(--font-mono);
-  font-size: 2rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+/* Loading avatar */
+.loading-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
 }
 
-.loading-logo span { color: var(--clr-accent); }
+.loading-avatar-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.loading-avatar-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(
+    from 0deg,
+    #3b0764,
+    #7e22ce,
+    #6478ff,
+    #4c1d95,
+    #a78bfa,
+    #3b0764
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 10px rgba(126, 34, 206, 0.9)) drop-shadow(0 0 22px rgba(59, 7, 100, 0.7));
+  animation: spin-ring 2.5s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes spin-ring {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.loading-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: transparent;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  position: relative;
+  z-index: 1;
+}
+
+.loading-avatar-initials {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.04em;
+}
 
 .loading-bar-track {
   width: 200px;

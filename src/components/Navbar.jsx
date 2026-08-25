@@ -1,7 +1,27 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
-import { Download, Menu, X, Code2 } from 'lucide-react';
+import { Download, Menu, X } from 'lucide-react';
 import './Navbar.css';
+
+/* ── Avatar Logo ───────────────────────────────────────── */
+function AvatarLogo() {
+  const [imgError, setImgError] = useState(false);
+  return (
+    <div className="navbar__avatar">
+      {!imgError ? (
+        <img
+          src="/avatar.png"
+          alt="Dipeshraj Shrestha"
+          className="navbar__avatar-img"
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <span className="navbar__avatar-initials">DR</span>
+      )}
+      <span className="navbar__avatar-ring" />
+    </div>
+  );
+}
 
 const links = [
   { label: 'Home',       id: 'home' },
@@ -91,12 +111,14 @@ export default function Navbar() {
             className="navbar__logo"
             onClick={() => scrollTo('home')}
             aria-label="Go to top"
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.96 }}
+            whileHover={{ scale: 1.04 }}
           >
-            <Code2 size={18} className="navbar__logo-icon" />
-            <span className="navbar__logo-bracket">&lt;</span>
-            <span className="navbar__logo-name">DR</span>
-            <span className="navbar__logo-bracket">/&gt;</span>
+            <AvatarLogo />
+            <div className="navbar__logo-text">
+              <span className="navbar__logo-name">Dipeshraj</span>
+              <span className="navbar__logo-sub">Portfolio</span>
+            </div>
           </motion.button>
 
           {/* Desktop Links */}
