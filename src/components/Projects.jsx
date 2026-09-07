@@ -290,15 +290,15 @@ export default function Projects() {
                     aria-label={`View ${project.title} source code on GitHub`}
                   >
                     <FaGithub size={15} />
-                    View on GitHub
+                    Source Code
                   </motion.a>
                 ) : (
                   <motion.span
                     className="project-card__action project-card__action-disabled"
-                    title="Private / No public repo yet"
+                    title="Private repository"
                   >
                     <FaGithub size={15} />
-                    Code
+                    Private Repo
                   </motion.span>
                 )}
                 {project.demo && (

@@ -85,8 +85,8 @@
 }
 
 .skill-card:hover {
-  border-color: var(--clr-border-glow);
-  box-shadow: var(--shadow-glow-sm), var(--shadow-card);
+  border-color: var(--skill-border, var(--clr-border-glow));
+  box-shadow: 0 0 20px var(--skill-glow, rgba(100,120,255,0.25)), var(--shadow-card);
 }
 
 .skill-card:hover::before { opacity: 1; }
@@ -133,12 +133,30 @@
   box-shadow: 0 0 8px rgba(100,120,255,0.4);
 }
 
-.skill-card__level {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--clr-accent);
+.skill-card__meta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
   z-index: 1;
+  padding: 0 2px;
+}
+
+.skill-card__tier {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--clr-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.skill-card__level {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--clr-accent);
 }
 
 /* Soft Skills */

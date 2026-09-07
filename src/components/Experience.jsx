@@ -10,6 +10,7 @@ const experiences = [
     location: 'Kathmandu',
     period: 'Mar 2024 – Aug 2024',
     duration: '5 months',
+    tags: ['Photoshop', 'Illustrator', 'Figma', 'Brand Identity', 'Social Media Design'],
     bullets: [
       'Designed brand identity assets including logos, social media graphics, and marketing collateral for multiple clients.',
       'Collaborated with the creative team to develop visual concepts that aligned with client brand guidelines.',
@@ -23,6 +24,7 @@ const experiences = [
     location: 'Kathmandu',
     period: 'Feb 2024 – Apr 2024',
     duration: '3 months',
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'Jakarta Servlet', 'MySQL', 'QA Testing'],
     bullets: [
       'Built interactive, responsive web pages using HTML, CSS, JavaScript, and Java Servlet.',
       'Designed and integrated backend systems using MySQL and Jakarta Servlet to manage service requests.',
@@ -33,9 +35,21 @@ const experiences = [
 ];
 
 const activities = [
-  'Library Management System',
-  'Participation in Clockmakers',
-  'Service Management System',
+  {
+    title: 'Library Management System',
+    tag: 'Academic Project',
+    description: 'Built a full CRUD system to manage catalog inventory, borrowing records, and student memberships.',
+  },
+  {
+    title: 'Participation in Clockmakers',
+    tag: 'Hackathon & Workshop',
+    description: 'Engaged in competitive problem-solving and software development sessions within the college community.',
+  },
+  {
+    title: 'Service Management System',
+    tag: 'College System',
+    description: 'Developed backend services with relational database schemas to streamline request tracking.',
+  },
 ];
 
 const cardVariant = {
@@ -128,6 +142,17 @@ export default function Experience() {
                     </motion.div>
                   ))}
                 </div>
+
+                {/* Tech tags */}
+                {exp.tags && (
+                  <div className="timeline-item__tags">
+                    {exp.tags.map((tag) => (
+                      <span key={tag} className="timeline-item__tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             </motion.div>
           ))}
@@ -142,17 +167,22 @@ export default function Experience() {
         >
           <div className="experience__activities-title">
             <Zap size={16} color="var(--clr-neon)" />
-            Academic Activities
+            Academic Activities & Projects
           </div>
           <div className="experience__activities-grid">
             {activities.map((a) => (
-              <motion.span
-                key={a}
-                className="tag"
-                whileHover={{ scale: 1.05, y: -2 }}
+              <motion.div
+                key={a.title}
+                className="activity-card"
+                whileHover={{ scale: 1.02, y: -3 }}
+                transition={{ duration: 0.2 }}
               >
-                {a}
-              </motion.span>
+                <div className="activity-card__header">
+                  <span className="activity-card__title">{a.title}</span>
+                  <span className="activity-card__tag">{a.tag}</span>
+                </div>
+                <p className="activity-card__desc">{a.description}</p>
+              </motion.div>
             ))}
           </div>
         </motion.div>

@@ -22,6 +22,7 @@
   z-index: 0;
   width: 100%;
   height: 100%;
+  will-change: transform;
 }
 
 .hero__bg-lightning canvas {
@@ -52,7 +53,7 @@
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 120px clamp(24px, 5vw, 80px) 0;
+  padding: 120px clamp(24px, 5vw, 80px) 80px;
 }
 
 /* ── 3D Robot Container ──────────────────────────────────── */
@@ -67,6 +68,7 @@
   background: transparent !important;
   overflow: visible;
   margin-bottom: 0;
+  will-change: transform, opacity;
 }
 
 .hero__robot-spline {
@@ -160,11 +162,13 @@ a[href*="spline"] {
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 500;
   color: var(--clr-text-muted);
-  min-height: 2em;
+  min-height: 1.8em;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 2px;
+  overflow: visible;
+  white-space: nowrap;
 }
 
 .hero__role-cursor {
@@ -329,6 +333,7 @@ a[href*="spline"] {
     grid-template-columns: 1fr;
     text-align: center;
     padding-top: 140px;
+    padding-bottom: 60px;
     gap: 40px;
   }
 
@@ -340,6 +345,12 @@ a[href*="spline"] {
     justify-content: center;
   }
 
+  .hero__role {
+    justify-content: center;
+    white-space: normal;
+    flex-wrap: wrap;
+  }
+
   .hero__content { text-align: center; }
   .hero__description { margin: 0 auto 32px; }
 }
@@ -348,4 +359,8 @@ a[href*="spline"] {
   .hero__name { font-size: 2.6rem; }
   .hero__stats { gap: 10px; }
   .hero__robot-wrapper { height: 300px; }
+
+  .hero__role {
+    font-size: 1rem;
+  }
 }

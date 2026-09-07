@@ -56,11 +56,23 @@
 /* ── Banner ─────────────────────────────────────────────── */
 .project-card__banner {
   position: relative;
-  height: 170px;
+  height: 185px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+/* Subtle dot-matrix pattern overlay */
+.project-card__banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Decorative radial orb behind icon */
@@ -68,6 +80,16 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+}
+
+/* Idle floating animation */
+@keyframes iconIdleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 /* SVG icon wrapper */
@@ -81,11 +103,13 @@
   z-index: 2;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.08);
+  animation: iconIdleFloat 4s ease-in-out infinite;
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
               box-shadow 0.4s;
 }
 
 .project-card:hover .project-card__icon-wrap {
+  animation-play-state: paused;
   transform: translateY(-8px) scale(1.08) rotate(-2deg);
   box-shadow: 0 20px 48px rgba(0,0,0,0.5);
 }

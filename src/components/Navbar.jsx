@@ -143,15 +143,18 @@ export default function Navbar() {
           </nav>
 
           {/* CTA — Magnetic */}
-          <motion.button
+          <motion.a
             ref={ctaRef}
             className="navbar__cta"
             style={{ x: sx, y: sy }}
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
             aria-label="Download Resume"
           >
             <Download size={14} />
             Resume
-          </motion.button>
+          </motion.a>
 
           {/* Hamburger */}
           <motion.button
@@ -203,9 +206,9 @@ export default function Navbar() {
                   {label}
                 </motion.button>
               ))}
-              <motion.button className="navbar__cta mobile-menu__cta" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+              <motion.a className="navbar__cta mobile-menu__cta" href="/resume.pdf" target="_blank" rel="noreferrer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
                 <Download size={14} /> Resume
-              </motion.button>
+              </motion.a>
             </motion.div>
           </>
         )}

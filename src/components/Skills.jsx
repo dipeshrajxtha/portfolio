@@ -2,23 +2,36 @@ import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import {
   SiJavascript, SiPython, SiHtml5, SiMysql,
-  SiApachetomcat, SiGit
+  SiApachetomcat, SiGit, SiEclipseide
 } from 'react-icons/si';
-import { FaJava, FaCss3Alt } from 'react-icons/fa';
+import { FaJava, FaCss3Alt, FaServer, FaFileCode, FaBug } from 'react-icons/fa';
+import { MdDesignServices } from 'react-icons/md';
 import { VscCode } from 'react-icons/vsc';
 import './Skills.css';
 
+/* Helper to map proficiency percentages to clear tiers */
+const getTier = (level) => {
+  if (level >= 85) return 'Advanced';
+  if (level >= 75) return 'Proficient';
+  return 'Intermediate';
+};
+
 /* Map skill names to react-icons components for real SVG icons */
 const IconMap = {
-  Java:            <FaJava size={24} color="#f89820" />,
-  Python:          <SiPython size={24} color="#3776ab" />,
-  JavaScript:      <SiJavascript size={24} color="#f7df1e" />,
-  HTML:            <SiHtml5 size={24} color="#e34f26" />,
-  CSS:             <FaCss3Alt size={24} color="#1572b6" />,
-  MySQL:           <SiMysql size={24} color="#00758f" />,
-  'Apache Tomcat': <SiApachetomcat size={24} color="#f8dc75" />,
-  Git:             <SiGit size={24} color="#f05032" />,
-  'VS Code':       <VscCode size={24} color="#007acc" />,
+  Java:              <FaJava size={24} color="#f89820" />,
+  Python:            <SiPython size={24} color="#3776ab" />,
+  JavaScript:        <SiJavascript size={24} color="#f7df1e" />,
+  HTML:              <SiHtml5 size={24} color="#e34f26" />,
+  CSS:               <FaCss3Alt size={24} color="#1572b6" />,
+  'Jakarta Servlet': <FaServer size={24} color="#6478ff" />,
+  JSP:               <FaFileCode size={24} color="#a78bfa" />,
+  'Apache Tomcat':   <SiApachetomcat size={24} color="#f8dc75" />,
+  MySQL:             <SiMysql size={24} color="#00758f" />,
+  Eclipse:           <SiEclipseide size={24} color="#7c5cbf" />,
+  'VS Code':         <VscCode size={24} color="#007acc" />,
+  Git:               <SiGit size={24} color="#f05032" />,
+  'UI/UX':           <MdDesignServices size={24} color="#ff6b6b" />,
+  Debugging:         <FaBug size={24} color="#00f5d4" />,
 };
 
 const categories = {
@@ -134,6 +147,10 @@ export default function Skills() {
               initial="hidden"
               animate="visible"
               exit="exit"
+              style={{
+                '--skill-glow': `${skill.color}33`,
+                '--skill-border': `${skill.color}66`,
+              }}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
             >
               <div
@@ -159,7 +176,10 @@ export default function Skills() {
                   transition={{ duration: 1.1, delay: 0.3 + i * 0.04, ease: [0.4, 0, 0.2, 1] }}
                 />
               </div>
-              <div className="skill-card__level">{skill.level}%</div>
+              <div className="skill-card__meta">
+                <span className="skill-card__tier">{getTier(skill.level)}</span>
+                <span className="skill-card__level">{skill.level}%</span>
+              </div>
             </motion.div>
           ))}
         </motion.div>

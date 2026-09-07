@@ -136,9 +136,36 @@
   box-shadow: 0 0 6px rgba(100,120,255,0.5);
 }
 
+/* Timeline tags */
+.timeline-item__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.timeline-item__tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--clr-accent);
+  background: rgba(100, 120, 255, 0.08);
+  border: 1px solid rgba(100, 120, 255, 0.2);
+  padding: 3px 10px;
+  border-radius: 50px;
+  transition: all var(--transition-fast);
+}
+
+.timeline-item__tag:hover {
+  background: rgba(100, 120, 255, 0.16);
+  border-color: var(--clr-accent);
+  transform: translateY(-1px);
+}
+
 /* Activities */
 .experience__activities {
-  padding: 24px;
+  padding: 26px;
   background: var(--clr-card);
   border: 1px solid var(--clr-border);
   border-radius: var(--radius-md);
@@ -153,13 +180,62 @@
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--clr-text);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .experience__activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 14px;
+}
+
+.activity-card {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.activity-card:hover {
+  background: rgba(100, 120, 255, 0.05);
+  border-color: var(--clr-border-glow);
+  box-shadow: var(--shadow-glow-sm);
+}
+
+.activity-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   flex-wrap: wrap;
-  gap: 10px;
+}
+
+.activity-card__title {
+  font-family: var(--font-primary);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.activity-card__tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--clr-neon);
+  background: rgba(0, 245, 212, 0.08);
+  border: 1px solid rgba(0, 245, 212, 0.2);
+  padding: 2px 8px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.activity-card__desc {
+  font-size: 0.82rem;
+  color: var(--clr-text-muted);
+  line-height: 1.55;
 }
 
 /* ── Responsive ─────────────────────────────────────── */
