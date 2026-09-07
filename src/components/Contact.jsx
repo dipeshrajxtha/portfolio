@@ -101,11 +101,11 @@ export default function Contact() {
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
           >
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="contact__social" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/dipeshraj-shrestha/" target="_blank" rel="noreferrer" className="contact__social" aria-label="LinkedIn">
               <FaLinkedinIn size={15} />
               LinkedIn
             </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="contact__social" aria-label="GitHub">
+            <a href="https://github.com/dipeshrajxtha" target="_blank" rel="noreferrer" className="contact__social" aria-label="GitHub">
               <FaGithub size={15} />
               GitHub
             </a>

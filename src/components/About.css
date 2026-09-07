@@ -82,6 +82,7 @@
   overflow: hidden;
   background: rgba(5, 8, 22, 0.6);
   position: relative;
+  will-change: transform;
 }
 
 .about__spline {
@@ -100,6 +101,7 @@
   text-align: center;
   box-shadow: var(--shadow-glow-sm), var(--shadow-md);
   z-index: 2;
+  will-change: transform;
 }
 
 .about__float-card-1 { top: 8%; right: -8%; }
@@ -222,10 +224,18 @@
   .about__inner { grid-template-columns: 1fr; }
   .about__visual { position: static; }
   .about__avatar-card { max-width: 260px; margin: 0 auto; }
-  .about__float-card-1 { right: -5%; }
-  .about__float-card-2 { left: -5%; }
+  .about__float-card-1 { right: 0; }
+  .about__float-card-2 { left: 0; }
 }
 
 @media (max-width: 480px) {
   .about__info-grid { grid-template-columns: 1fr; }
+  .about__float-card {
+    padding: 8px 12px;
+  }
+  .about__float-value {
+    font-size: 1.2rem;
+  }
+  .about__float-card-1 { right: 8px; top: 12px; }
+  .about__float-card-2 { left: 8px; bottom: 12px; }
 }

@@ -161,10 +161,10 @@ export default function Hero() {
             <motion.a href="tel:+9779860001136" className="hero__social-link" aria-label="Phone" whileHover={{ y: -4, scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <Phone size={16} />
             </motion.a>
-            <motion.a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hero__social-link" aria-label="LinkedIn" whileHover={{ y: -4, scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+            <motion.a href="https://www.linkedin.com/in/dipeshraj-shrestha/" target="_blank" rel="noreferrer" className="hero__social-link" aria-label="LinkedIn" whileHover={{ y: -4, scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <FaLinkedinIn size={15} />
             </motion.a>
-            <motion.a href="https://github.com" target="_blank" rel="noreferrer" className="hero__social-link" aria-label="GitHub" whileHover={{ y: -4, scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+            <motion.a href="https://github.com/dipeshrajxtha" target="_blank" rel="noreferrer" className="hero__social-link" aria-label="GitHub" whileHover={{ y: -4, scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <FaGithub size={15} />
             </motion.a>
             <span className="hero__location">

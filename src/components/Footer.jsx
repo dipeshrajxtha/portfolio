@@ -41,7 +41,7 @@ export default function Footer() {
 
         {/* Nav links */}
         <nav className="footer__links" aria-label="Footer navigation">
-          {navLinks.slice(0, 5).map(({ label, id }) => (
+          {navLinks.map(({ label, id }) => (
             <span
               key={id}
               className="footer__link"
@@ -56,22 +56,22 @@ export default function Footer() {
         </nav>
 
         {/* Social links */}
-        <div style={{ display: 'flex', gap: 10 }}>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"
-            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 36, height: 36,
-              borderRadius: '50%', background: 'rgba(255,255,255,0.04)', border: '1px solid var(--clr-border)',
-              color: 'var(--clr-text-dim)', transition: 'all 0.18s' }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--clr-border-glow)'; e.currentTarget.style.color = 'var(--clr-text)'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--clr-border)'; e.currentTarget.style.color = 'var(--clr-text-dim)'; }}
+        <div className="footer__socials">
+          <a
+            href="https://www.linkedin.com/in/dipeshraj-shrestha/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+            className="footer__social"
           >
             <FaLinkedinIn size={14} />
           </a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub"
-            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 36, height: 36,
-              borderRadius: '50%', background: 'rgba(255,255,255,0.04)', border: '1px solid var(--clr-border)',
-              color: 'var(--clr-text-dim)', transition: 'all 0.18s' }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--clr-border-glow)'; e.currentTarget.style.color = 'var(--clr-text)'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--clr-border)'; e.currentTarget.style.color = 'var(--clr-text-dim)'; }}
+          <a
+            href="https://github.com/dipeshrajxtha"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+            className="footer__social"
           >
             <FaGithub size={14} />
           </a>

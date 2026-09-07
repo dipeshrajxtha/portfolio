@@ -196,10 +196,12 @@
   flex-shrink: 0;
   border: none;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .navbar__cta:hover {
   box-shadow: 0 6px 24px rgba(100,120,255,0.45);
+  color: #fff;
 }
 
 /* Hamburger */
